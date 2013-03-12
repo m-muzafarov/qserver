@@ -11,7 +11,7 @@ from contextlib import closing
 import ConfigParser
 
 
-SVN_DIR_NAME = '.svn' # Directory to be excluded till import
+SVN_DIR_NAME = '.git' # Directory to be excluded till import
 CHECKERS_ORDER = ('xml', 'py', 'ext')
 
 # Subdirs for export
@@ -24,7 +24,7 @@ CFG_TEMPLATE = 'questserver.cfg.template'
 TASK_CFG_FILENAME = 'tasks.cfg'
 
 ### Variables to for config file
-srv_name = "http://quals2011.ructf.org"
+srv_name = "http://192.168.185.92"
 base_path = "/"
 base_url = "%(srv_name)s%(base_path)s"
 log_dir = "/var/log/qserver"
@@ -59,12 +59,13 @@ class Task(object):
 class QuestServerCheckers(object):
     def _scan_path(self, path):
         tasks = []
-        for task_name in os.listdir(path):
-            full_task_path = os.path.join(path, task_name)
-            # Skipping all garbage in directory
-            if not os.path.isdir(full_task_path):
-                continue
-            tasks.append(Task(full_task_path, name=task_name, relative_path=task_name))
+        for category in os.listdir(path):
+            for task_name in os.listdir(os.path.join(path,category)):
+                full_task_path = os.path.join(path, category, task_name)
+                # Skipping all garbage in directory
+                if not os.path.isdir(full_task_path):
+                    continue
+                tasks.append(Task(full_task_path, name=task_name, category=category, relative_path=task_name))
         return tasks
 
     def _script_quest_finder(self, checker_type, task):
