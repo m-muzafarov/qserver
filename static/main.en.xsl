@@ -3,11 +3,12 @@
     <xsl:template name="header">
         <html>
             <head>
-                <title>RuCTF Quals 2013</title>
+                <title>Ural SchoolCTF</title>
                 <base href="{/response/@base}" />
                 <xsl:if test="/response/view[@type = 'monitor']">
                     <meta http-equiv="refresh" content="30;url=monitor" />
                 </xsl:if>
+                <link rel="icon" href="static/images/favicon.ico" />
                 <link rel="stylesheet" type="text/css" href="static/qserver.css" />
                 <script src="static/qserver.js" />
             </head>
