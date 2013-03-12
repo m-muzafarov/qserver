@@ -88,8 +88,11 @@ class XMLViewer(IViewer):
     """
 
     def __init__(self, *args, **kwargs):
-        logging.info("%s" % args)
-        logging.info("%s" % kwargs)
+        try:
+            logging.info("%s" % args)
+            logging.info("%s" % kwargs)
+        except:
+            pass
         super(XMLViewer, self).__init__()
 
     def default_headers(self):
