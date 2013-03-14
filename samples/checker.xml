@@ -2,7 +2,6 @@
 <quest series="random" id="random:100" proto="xmlquest-1.0">
     <name>Example1</name>
     <task>Найдите артефакт в лабиринте</task>
-    <task>Find artefact in labirint</task>
     <checker strict="yes">
         <solution case="insensitive">testFLAG</solution>
     </checker>

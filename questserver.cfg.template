@@ -1,6 +1,6 @@
 [DEFAULT]
-open_all = no
-srv_name =  http://localhost
+open_all = yes
+srv_name =  http://192.168.197.135
 workers = 10
 base_url = %(srv_name)s%(base_path)s
 base_path = /qserver/

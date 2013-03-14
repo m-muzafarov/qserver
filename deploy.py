@@ -24,8 +24,8 @@ CFG_TEMPLATE = 'questserver.cfg.template'
 TASK_CFG_FILENAME = 'tasks.cfg'
 
 ### Variables to for config file
-srv_name = "http://192.168.185.92"
-base_path = "/"
+srv_name = "http://192.168.197.135"
+base_path = "/qserver/"
 base_url = "%(srv_name)s%(base_path)s"
 log_dir = "/var/log/qserver"
 workers = 10
